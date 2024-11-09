@@ -26,7 +26,7 @@ const objects3D: Object3D[] = [
     artist: "ordoñez",
     year: 2023,
     description: "A simple animated cube demonstrating basic glTF animation capabilities.",
-    modelUrl: "https://raw.githubusercontent.com/Nes-Curly13/modelos3d_MuseoUV/main/Modelos%203D/modelo_vasija/untitled1.gltf",
+    modelUrl: "https://raw.githubusercontent.com/Nes-Curly13/modelos3d_MuseoUV/refs/heads/main/Modelos%203D/MODELO_ORDONEZ/modeloordonez.gltf",
     thumbnail: "https://source.unsplash.com/random/300x300?cube",
     type: 'gltf'
   },

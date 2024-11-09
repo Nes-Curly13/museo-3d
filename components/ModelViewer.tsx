@@ -40,6 +40,7 @@ export default function ModelViewer({ modelUrl, modelType }: ModelViewerProps) {
     loader.load(
       modelUrl,
       (gltf) => {
+        console.log(gltf)
         scene.add(gltf.scene);
         
         // Center and scale the model
