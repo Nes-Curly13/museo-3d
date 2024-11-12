@@ -16,10 +16,14 @@ export default function ModelViewer({ modelUrl, modelType }: ModelViewerProps) {
   useEffect(() => {
     if (!mountRef.current) return;
 
+
+
     const currentRef = mountRef.current;
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, currentRef.clientWidth / currentRef.clientHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(75, currentRef.clientWidth / currentRef.clientHeight, 0.5, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true });
+
+
 
     renderer.setSize(currentRef.clientWidth, currentRef.clientHeight);
     currentRef.appendChild(renderer.domElement);
@@ -29,33 +33,51 @@ export default function ModelViewer({ modelUrl, modelType }: ModelViewerProps) {
     controls.dampingFactor = 0.25;
     controls.enableZoom = true;
 
+
+//Ilumination
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(ambientLight);
-
-    const pointLight = new THREE.PointLight(0xffffff, 1);
-    pointLight.position.set(5, 5, 5);
-    scene.add(pointLight);
-
+    // White directional light at half intensity shining from the top.
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
+    scene.add(directionalLight);
+//Ilumination
+    
     const loader = new GLTFLoader();
     loader.load(
       modelUrl,
       (gltf) => {
         console.log(gltf)
         scene.add(gltf.scene);
-        
+
         // Center and scale the model
         const box = new THREE.Box3().setFromObject(gltf.scene);
         const center = box.getCenter(new THREE.Vector3());
         const size = box.getSize(new THREE.Vector3());
-        
+
         const maxDim = Math.max(size.x, size.y, size.z);
-        const scale = 2 / maxDim;
+        const scale = 4 / maxDim;
         gltf.scene.scale.multiplyScalar(scale);
-        
+
         gltf.scene.position.sub(center.multiplyScalar(scale));
-        
+
         camera.position.set(0, 0, 5);
         controls.update();
+
+        // Plane for the base of object
+        const geometry = new THREE.PlaneGeometry(maxDim * scale * 4, maxDim * scale * 4);
+        const material = new THREE.MeshBasicMaterial({
+          color: 0x8C8C8E,
+          side: THREE.DoubleSide,
+
+          opacity: 0.2,
+          transparent: true,
+        });
+        const plane = new THREE.Mesh(geometry, material);
+        plane.rotation.x = -Math.PI / 2;
+        plane.position.y = -maxDim * scale / 2
+
+        scene.add(plane);
+        // Plane for the base of object
       },
       undefined,
       (error) => {
@@ -66,6 +88,7 @@ export default function ModelViewer({ modelUrl, modelType }: ModelViewerProps) {
     const animate = () => {
       requestAnimationFrame(animate);
       controls.update();
+
       renderer.render(scene, camera);
     };
 

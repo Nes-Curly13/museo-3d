@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import ModelViewer from '@/components/ModelViewer';
 import Image from 'next/image';
+import { log } from 'console';
 
 type Object3D = {
   id: number;
@@ -26,7 +27,7 @@ const objects3D: Object3D[] = [
     artist: "ordoñez",
     year: 2023,
     description: "A simple animated cube demonstrating basic glTF animation capabilities.",
-    modelUrl: "https://raw.githubusercontent.com/Nes-Curly13/modelos3d_MuseoUV/refs/heads/main/Modelos%203D/MODELO_ORDONEZ/modeloordonez.gltf",
+    modelUrl: "/Modelos3D/MODELO_ORDONEZ/modeloordonez.gltf",
     thumbnail: "https://source.unsplash.com/random/300x300?cube",
     type: 'gltf'
   },
@@ -36,7 +37,7 @@ const objects3D: Object3D[] = [
     artist: "Khronos Group",
     year: 2023,
     description: "A model showcasing carbon fibre material properties in glTF.",
-    modelUrl: "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/CarbonFibre/glTF/CarbonFibre.gltf",
+    modelUrl: "Modelos3D/MODELO_ORDONEZ/modeloordonez.gltf",
     thumbnail: "https://source.unsplash.com/random/300x300?carbon",
     type: 'gltf'
   },
@@ -49,12 +50,24 @@ const objects3D: Object3D[] = [
     modelUrl: "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/Duck/glTF/Duck.gltf",
     thumbnail: "https://source.unsplash.com/random/300x300?duck",
     type: 'gltf'
+  },
+  {
+    id: 4,
+    title: "Duck",
+    artist: "Khronos Group",
+    year: 2023,
+    description: "The classic yellow rubber duck model, a common test asset in 3D graphics.",
+    modelUrl: "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/Duck/glTF/Duck.gltf",
+    thumbnail: "https://source.unsplash.com/random/300x300?duck",
+    type: 'gltf'
   }
 ];
 
+
 export default function Gallery() {
   const [selectedObject, setSelectedObject] = useState<Object3D | null>(null);
-
+  
+  
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6 text-center">3D Museum Gallery</h1>
@@ -71,7 +84,7 @@ export default function Gallery() {
             </CardContent>
             <CardFooter className="flex justify-between items-center">
               <span className="font-semibold">{object.title}</span>
-              <Button onClick={() => setSelectedObject(object)}>View 3D</Button>
+              <Button onClick={() => setSelectedObject(object)}>Ver Modelo</Button>
             </CardFooter>
           </Card>
         ))}
