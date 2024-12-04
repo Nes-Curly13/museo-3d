@@ -27,7 +27,7 @@ const objects3D: Object3D[] = [
     artist: "ordoñez",
     year: 2023,
     description: "Un elemento artesanal tipo vasija de la epoca precolombina.",
-    modelUrl: "/Modelos3D/MODELO_ORDONEZ/modeloordonez.gltf",
+    modelUrl: "https://my3dmuseum.s3.us-east-1.amazonaws.com/modeloordonez.glb",
     thumbnail: "/images/modeloordonez.png",
     type: 'gltf'
   },
@@ -37,7 +37,7 @@ const objects3D: Object3D[] = [
     artist: "Khronos Group",
     year: 2023,
     description: "Un elemento artesanal tipo jarron de la epoca precolombina.",
-    modelUrl: "/Modelos3D/MODELO_CHAGUEZAC_F/modelochaguezac.gltf",
+    modelUrl: "https://my3dmuseum.s3.us-east-1.amazonaws.com/modelochaguezac.glb",
     thumbnail: "/images/modelochaguezac.png",
     type: 'gltf'
   },
@@ -47,7 +47,7 @@ const objects3D: Object3D[] = [
     artist: "Khronos Group",
     year: 2023,
     description: "Un elemento artesanal tipo recipiente de la epoca precolombina.",
-    modelUrl: "/Modelos3D/MODELO_HURTADO/modelohurtado.gltf",
+    modelUrl: "https://my3dmuseum.s3.us-east-1.amazonaws.com/modelohurtado.glb",
     thumbnail: "/images/modelohurtado.png",
     type: 'gltf'
   },
@@ -57,7 +57,7 @@ const objects3D: Object3D[] = [
     artist: "Khronos Group",
     year: 2023,
     description: "Un elemento artesanal tipo vaso de la epoca precolombina.",
-    modelUrl: "/Modelos3D/MODELO_MOLINA/modelo_molina.gltf",
+    modelUrl: "https://my3dmuseum.s3.us-east-1.amazonaws.com/modelomolina.glb",
     thumbnail: "/images/modelomolina.png",
     type: 'gltf'
   },
@@ -67,7 +67,7 @@ const objects3D: Object3D[] = [
     artist: "Khronos Group",
     year: 2023,
     description: "Un elemento artesanal tipo jarra de la epoca precolombina.",
-    modelUrl: "/Modelos3D/MODELO_ABADIASARRIA_F/modeloabadia.gltf",
+    modelUrl: "https://my3dmuseum.s3.us-east-1.amazonaws.com/modeloabadia.glb",
     thumbnail: "/images/modelo_abadia_sarria.png",
     type: 'gltf'
   }

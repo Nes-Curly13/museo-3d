@@ -62,7 +62,7 @@ const objects3D: Object3D[] = [
     artist: "Khronos Group",
     year: 2023,
     description: "Un elemento artesanal tipo jarra de la epoca precolombina.",
-    modelUrl: "/Modelos3D/MODELO_ABADIASARRIA_F/modeloabadia.gltf",
+    modelUrl: "https://dd7090f1.3delements.pages.dev/modeloabadia.glb",
     thumbnail: "/images/modelo_abadia_sarria.png",
     type: 'gltf'
   }
