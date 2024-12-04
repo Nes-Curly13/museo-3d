@@ -35,11 +35,15 @@ export default function ModelViewer({ modelUrl, modelType }: ModelViewerProps) {
 
 
 //Ilumination
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    const ambientLight = new THREE.AmbientLight(0xffffff);
     scene.add(ambientLight);
     // White directional light at half intensity shining from the top.
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    
     scene.add(directionalLight);
+
+    const light = new THREE.HemisphereLight( 0xffffff, 0x080820, 1 );
+    scene.add( light );
 //Ilumination
     
     const loader = new GLTFLoader();
@@ -101,12 +105,13 @@ export default function ModelViewer({ modelUrl, modelType }: ModelViewerProps) {
     };
 
     window.addEventListener('resize', handleResize);
-
+//limpiador de los eventos para no sobrecargar el navegador
     return () => {
       window.removeEventListener('resize', handleResize);
       currentRef.removeChild(renderer.domElement);
     };
-  }, [modelUrl, modelType]);
+//limpiador de los eventos para no sobrecargar el navegador    
+  }, [modelUrl, modelType]);// parámetros que al cambiar ejecutan de nuevo el useEffect
 
   return <div ref={mountRef} style={{ width: '100%', height: '100%' }} />;
 }

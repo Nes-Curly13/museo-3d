@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import ModelViewer from '@/components/ModelViewer';
 import Image from 'next/image';
-import { log } from 'console';
+
 
 type Object3D = {
   id: number;
@@ -23,42 +23,52 @@ type Object3D = {
 const objects3D: Object3D[] = [
   {
     id: 1,
-    title: "modelo 1",
+    title: "Modelo Ordoñes",
     artist: "ordoñez",
     year: 2023,
-    description: "A simple animated cube demonstrating basic glTF animation capabilities.",
+    description: "Un elemento artesanal tipo vasija de la epoca precolombina.",
     modelUrl: "/Modelos3D/MODELO_ORDONEZ/modeloordonez.gltf",
-    thumbnail: "https://source.unsplash.com/random/300x300?cube",
+    thumbnail: "/images/modeloordonez.png",
     type: 'gltf'
   },
   {
     id: 2,
-    title: "Carbon Fibre",
+    title: "Modelo Chaguezac",
     artist: "Khronos Group",
     year: 2023,
-    description: "A model showcasing carbon fibre material properties in glTF.",
-    modelUrl: "Modelos3D/MODELO_ORDONEZ/modeloordonez.gltf",
-    thumbnail: "https://source.unsplash.com/random/300x300?carbon",
+    description: "Un elemento artesanal tipo jarron de la epoca precolombina.",
+    modelUrl: "/Modelos3D/MODELO_CHAGUEZAC_F/modelochaguezac.gltf",
+    thumbnail: "/images/modelochaguezac.png",
     type: 'gltf'
   },
   {
     id: 3,
-    title: "Duck",
+    title: "Modelo Hurtado",
     artist: "Khronos Group",
     year: 2023,
-    description: "The classic yellow rubber duck model, a common test asset in 3D graphics.",
-    modelUrl: "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/Duck/glTF/Duck.gltf",
-    thumbnail: "https://source.unsplash.com/random/300x300?duck",
+    description: "Un elemento artesanal tipo recipiente de la epoca precolombina.",
+    modelUrl: "/Modelos3D/MODELO_HURTADO/modelohurtado.gltf",
+    thumbnail: "/images/modelohurtado.png",
     type: 'gltf'
   },
   {
     id: 4,
-    title: "Duck",
+    title: "Modelo Molina",
     artist: "Khronos Group",
     year: 2023,
-    description: "The classic yellow rubber duck model, a common test asset in 3D graphics.",
-    modelUrl: "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/Duck/glTF/Duck.gltf",
-    thumbnail: "https://source.unsplash.com/random/300x300?duck",
+    description: "Un elemento artesanal tipo vaso de la epoca precolombina.",
+    modelUrl: "/Modelos3D/MODELO_MOLINA/modelo_molina.gltf",
+    thumbnail: "/images/modelomolina.png",
+    type: 'gltf'
+  },
+  {
+    id: 5,
+    title: "Modelo Abadia",
+    artist: "Khronos Group",
+    year: 2023,
+    description: "Un elemento artesanal tipo jarra de la epoca precolombina.",
+    modelUrl: "/Modelos3D/MODELO_ABADIASARRIA_F/modeloabadia.gltf",
+    thumbnail: "/images/modelo_abadia_sarria.png",
     type: 'gltf'
   }
 ];
@@ -70,7 +80,7 @@ export default function Gallery() {
   
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6 text-center">3D Museum Gallery</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">Galería de museo 3D</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {objects3D.map((object) => (
           <Card key={object.id} className="overflow-hidden">
@@ -105,7 +115,7 @@ export default function Gallery() {
       )}
       <div className="mt-8 text-center">
         <Link href="/">
-          <Button variant="outline">Back to Home</Button>
+          <Button variant="outline">Regresar a inicio</Button>
         </Link>
       </div>
     </div>
